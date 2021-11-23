@@ -10,3 +10,5 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <winsock.h>
+#include "mysql.h"

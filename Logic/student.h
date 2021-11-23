@@ -26,9 +26,6 @@ struct StudentList{
     struct Student* pre;
 };
 
-void initializeFromDatabase(struct StudentList** list);
-void writeToDatabase(struct StudentList** list);
-
 void add(struct Student* student, struct StudentList** list); //Add a student into the list
 void delete(int stuId, struct StudentList** list); //Delete a student from the list
 void modifyStudent(int stuId, struct StudentList** list); //Modify student
