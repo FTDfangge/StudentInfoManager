@@ -1,6 +1,6 @@
 #include "dependencies.h"
+#include "View/userInterface.h"
 
 int main() {
-    printf("Hello, World!\n");
-    return 0;
+    menu();
 }
