@@ -130,7 +130,7 @@ void addDBSync(struct Student* stu){
     mysql_close(con);
 }
 
-void deleteDBSync(){
+void deleteDBSync(int stuId){
     MYSQL* con = mysql_init(NULL);
     if (con == NULL)
     {
@@ -141,6 +141,12 @@ void deleteDBSync(){
     {
         finish_with_error(con);
     }
+    char sql[255];
+    snprintf(sql, 255, "DELETE FROM students WHERE stuId = %d;",stuId);
+    if (mysql_query(con, sql)){
+        finish_with_error(con);
+    }
+    mysql_close(con);
 }
 
 void modifyDBSync(struct Student* stu){

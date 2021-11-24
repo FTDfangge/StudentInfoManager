@@ -29,7 +29,27 @@ void add(struct Student* student, struct StudentList** list){
 } //Add a student into the list
 
 void delete(int stuId, struct StudentList** list){
+    //judge if the student exist in the list.
+    struct StudentList* listPtr = *list;
+    while (listPtr){
+        if(listPtr->data.stuId == stuId){
+            printf("\nstudent found, it will be deleted ");
 
+            if(listPtr->pre == NULL){
+                *list = listPtr->next;
+            } else{
+                listPtr->pre->next = listPtr->next;
+                listPtr->next->pre = listPtr->pre;
+            }
+
+            deleteDBSync(stuId);
+            char log2[255];
+            snprintf(log2, 255, "DELETE; STUID: %d;", stuId);
+            logWrite(log2);
+            return;
+        }
+        listPtr = listPtr->next;
+    }
 } //Delete a student from the list
 
 void modifyStudentInList(int stuId, struct StudentList** list){

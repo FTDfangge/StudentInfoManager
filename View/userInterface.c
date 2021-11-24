@@ -70,7 +70,10 @@ void UImodify(struct StudentList** list){
 }
 
 void UIdeleteStu(struct StudentList** list){
-
+    printf("\nPlz input the student number to delete: ");
+    int stuId;
+    scanf("%d",&stuId);
+    delete(stuId, list);
 }
 
 void UIaddStu(struct StudentList** list){

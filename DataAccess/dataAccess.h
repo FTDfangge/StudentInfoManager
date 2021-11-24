@@ -10,7 +10,7 @@
 void printDatabase();
 void initializeFromDatabase(struct StudentList** list);
 void addDBSync(struct Student* stu);
-void deleteDBSync();
+void deleteDBSync(int stuId);
 void modifyDBSync(struct Student* stu);
 
 void sortById(); //Sort the list by id
