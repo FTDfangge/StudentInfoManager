@@ -5,6 +5,10 @@
 #include "userInterface.h"
 
 void UImenu(){
+    struct StudentList* studentList = (struct StudentList*) malloc(sizeof (struct StudentList));
+    studentList->pre = NULL;
+    studentList->next = NULL;
+    initializeFromDatabase(&studentList);
     while(true){
         printf("\n=====Student Information management System=====\n");
         printf("=====Menu=====\n");
@@ -24,23 +28,23 @@ void UImenu(){
                 break;
             }
             case 2:{
-                UIsort();
+                UIsort(&studentList);
                 break;
             }
             case 3:{
-                UIaddStu();
+                UIaddStu(&studentList);
                 break;
             }
             case 4:{
-                UImodify();
+                UImodify(&studentList);
                 break;
             }
             case 5:{
-                UIdeleteStu();
+                UIdeleteStu(&studentList);
                 break;
             }
             case 6:{
-                UIsearch();
+                UIsearch(&studentList);
                 break;
             }
             case 7:{
@@ -53,26 +57,46 @@ void UImenu(){
     }
 }
 
-void UImodify(){
+void UImodify(struct StudentList** list){
 
 }
 
-void UIdeleteStu(){
+void UIdeleteStu(struct StudentList** list){
 
 }
 
-void UIaddStu(){
+void UIaddStu(struct StudentList** list){
+    printf("\n=====Add a student=====\n");
+
+    struct Student* student = (struct Student*) malloc(sizeof (struct Student));
+    printf("Plz input the student info:\n"
+           "studentId: ");
+    scanf("%d",&(*student).stuId);
+    printf("\nstudent name: ");
+    scanf("%s",(*student).name);
+    printf("\nstudent gender: ");
+    scanf("%s",(*student).gender);
+    printf("\nstudent age: ");
+    scanf("%d", &(*student).age);
+    printf("\nstudent C score: ");
+    scanf("%d", &(*student).CScore);
+    printf("\nstudent English score: ");
+    scanf("%d", &(*student).EngScore);
+    printf("\nAdding...\n");
+
+    add(student, list);
 
 }
 
 void UIdisplay(){
+    //Directly call the data access layer
+    printDatabase();
+}
+
+void UIsort(struct StudentList** list){
 
 }
 
-void UIsort(){
-
-}
-
-void UIsearch(){
+void UIsearch(struct StudentList** list){
 
 }

@@ -6,6 +6,7 @@
 #define CODE_DEPENDENCIES_H
 
 #endif //CODE_DEPENDENCIES_H
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

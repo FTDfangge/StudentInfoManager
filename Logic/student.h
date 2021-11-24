@@ -5,13 +5,13 @@
 #ifndef CODE_STUDENT_H
 #define CODE_STUDENT_H
 
-#endif //CODE_STUDENT_H
 #include "../dependencies.h"
+#include "../DataAccess/dataAccess.h"
 
 struct Student{
     int stuId;
     char name[30];
-    char gender;
+    char gender[1];
     int age;
     int CScore;
     int EngScore;
@@ -22,17 +22,14 @@ void printStudentInfo(struct Student* student); //Print all info of the student
 
 struct StudentList{
     struct Student data;
-    struct Student* next;
-    struct Student* pre;
+    struct StudentList* next;
+    struct StudentList* pre;
 };
 
 void add(struct Student* student, struct StudentList** list); //Add a student into the list
 void delete(int stuId, struct StudentList** list); //Delete a student from the list
-void modifyStudent(int stuId, struct StudentList** list); //Modify student
+void modifyStudentInList(int stuId, struct StudentList** list); //Modify student
 struct Student* getStudent(int stuId); //Get a student struct
-void sortById(struct StudentList** list); //Sort the list by id
-void sortByName(struct StudentList** list); //Sort the list by name
-void sortByGender(struct StudentList** list); //Sort the list by gender
-void sortByAge(struct StudentList** list); //Sort the list by age
-void sortByCScore(struct StudentList** list); //Sort the list by C score
-void sortByEngScore(struct StudentList** list); //Sort the list by English score
+
+#endif //CODE_STUDENT_H
+

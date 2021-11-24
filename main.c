@@ -2,5 +2,5 @@
 #include "View/userInterface.h"
 
 int main() {
-    menu();
+    UImenu();
 }
