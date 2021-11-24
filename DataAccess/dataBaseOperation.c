@@ -143,7 +143,7 @@ void deleteDBSync(){
     }
 }
 
-void modifyDBSync(){
+void modifyDBSync(struct Student* stu){
     MYSQL* con = mysql_init(NULL);
     if (con == NULL)
     {
@@ -154,6 +154,15 @@ void modifyDBSync(){
     {
         finish_with_error(con);
     }
+    char sql[2048];
+    snprintf(sql, 2048, "update students set name = '%s', gender = '%s',age = %d, CScore = %d, EngScore = %d where stuId = %d;",
+             (*stu).name, (*stu).gender,(*stu).age, (*stu).CScore, (*stu).EngScore, (*stu).stuId);
+    printf("\nsql is %s\n",sql);
+    if (mysql_query(con, sql))
+    {
+        finish_with_error(con);
+    }
+    mysql_close(con);
 }
 
 void sortById(){

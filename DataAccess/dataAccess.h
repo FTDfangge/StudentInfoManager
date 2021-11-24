@@ -11,7 +11,7 @@ void printDatabase();
 void initializeFromDatabase(struct StudentList** list);
 void addDBSync(struct Student* stu);
 void deleteDBSync();
-void modifyDBSync();
+void modifyDBSync(struct Student* stu);
 
 void sortById(); //Sort the list by id
 void sortByName(); //Sort the list by name

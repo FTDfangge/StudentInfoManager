@@ -63,7 +63,10 @@ void UImenu(){
 }
 
 void UImodify(struct StudentList** list){
-
+    printf("\nPlz input the student id to be modify: ");
+    int stuId;
+    scanf("%d",&stuId);
+    modifyStudentInList(stuId, list);
 }
 
 void UIdeleteStu(struct StudentList** list){
