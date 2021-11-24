@@ -14,7 +14,7 @@ void UImodify(struct StudentList** list);
 void UIdeleteStu(struct StudentList** list);
 void UIsort(struct StudentList** list);
 void UIsearch(struct StudentList** list);
-
+void UIlog();
 
 
 #endif //CODE_USERINTERFACE_H

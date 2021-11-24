@@ -23,6 +23,9 @@ void add(struct Student* student, struct StudentList** list){
     (*list)->pre = newnode;
     *list = newnode;
     addDBSync(student);
+    char log[255];
+    snprintf(log, 255, "ADD; STUID: %d;", (*student).stuId);
+    logWrite(log);
 } //Add a student into the list
 
 void delete(int stuId, struct StudentList** list){

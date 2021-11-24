@@ -13,12 +13,15 @@ void addDBSync(struct Student* stu);
 void deleteDBSync();
 void modifyDBSync();
 
-void sortById(struct StudentList** list); //Sort the list by id
-void sortByName(struct StudentList** list); //Sort the list by name
-void sortByGender(struct StudentList** list); //Sort the list by gender
-void sortByAge(struct StudentList** list); //Sort the list by age
-void sortByCScore(struct StudentList** list); //Sort the list by C score
-void sortByEngScore(struct StudentList** list); //Sort the list by English score
+void sortById(); //Sort the list by id
+void sortByName(); //Sort the list by name
+void sortByGender(); //Sort the list by gender
+void sortByAge(); //Sort the list by age
+void sortByCScore(); //Sort the list by C score
+void sortByEngScore(); //Sort the list by English score
+
+void logPrint(); //Print the log file
+void logWrite(char* string); //Write to the log file
 
 #endif //CODE_DATAACCESS_H
 

@@ -21,7 +21,7 @@ void printDatabase(){
         finish_with_error(con);
     }
 
-    if (mysql_query(con, "SELECT * FROM students"))
+    if (mysql_query(con, "SELECT * FROM students;"))
     {
         finish_with_error(con);
     }
@@ -156,26 +156,269 @@ void modifyDBSync(){
     }
 }
 
-void sortById(struct StudentList** list){
+void sortById(){
+    MYSQL* con = mysql_init(NULL);
+    if (con == NULL)
+    {
+        finish_with_error(con);
+    }
+    if (mysql_real_connect(con, "localhost", "user1", "123456",
+                           "sims", 0, NULL, 0) == NULL)
+    {
+        finish_with_error(con);
+    }
+
+    if (mysql_query(con, "SELECT * FROM students ORDER BY stuId;"))
+    {
+        finish_with_error(con);
+    }
+
+    MYSQL_RES *result = mysql_store_result(con);
+
+    if (result == NULL)
+    {
+        finish_with_error(con);
+    }
+
+    int num_fields = mysql_num_fields(result);
+
+    MYSQL_ROW row;
+
+
+    while ((row = mysql_fetch_row(result)))
+    {
+        for(int i = 0; i < num_fields; i++)
+        {
+            printf("%s ", row[i] ? row[i] : "NULL");
+        }
+
+        printf("\n");
+    }
+
+    mysql_free_result(result);
+    mysql_close(con);
 
 } //Sort the list by id
 
-void sortByName(struct StudentList** list){
+void sortByName(){
+    MYSQL* con = mysql_init(NULL);
+    if (con == NULL)
+    {
+        finish_with_error(con);
+    }
+    if (mysql_real_connect(con, "localhost", "user1", "123456",
+                           "sims", 0, NULL, 0) == NULL)
+    {
+        finish_with_error(con);
+    }
 
+    if (mysql_query(con, "SELECT * FROM students ORDER BY name;"))
+    {
+        finish_with_error(con);
+    }
+
+    MYSQL_RES *result = mysql_store_result(con);
+
+    if (result == NULL)
+    {
+        finish_with_error(con);
+    }
+
+    int num_fields = mysql_num_fields(result);
+
+    MYSQL_ROW row;
+
+
+    while ((row = mysql_fetch_row(result)))
+    {
+        for(int i = 0; i < num_fields; i++)
+        {
+            printf("%s ", row[i] ? row[i] : "NULL");
+        }
+
+        printf("\n");
+    }
+
+    mysql_free_result(result);
+    mysql_close(con);
 } //Sort the list by name
 
-void sortByGender(struct StudentList** list){
+void sortByGender(){
+    MYSQL* con = mysql_init(NULL);
+    if (con == NULL)
+    {
+        finish_with_error(con);
+    }
+    if (mysql_real_connect(con, "localhost", "user1", "123456",
+                           "sims", 0, NULL, 0) == NULL)
+    {
+        finish_with_error(con);
+    }
 
+    if (mysql_query(con, "SELECT * FROM students ORDER BY gender;"))
+    {
+        finish_with_error(con);
+    }
+
+    MYSQL_RES *result = mysql_store_result(con);
+
+    if (result == NULL)
+    {
+        finish_with_error(con);
+    }
+
+    int num_fields = mysql_num_fields(result);
+
+    MYSQL_ROW row;
+
+
+    while ((row = mysql_fetch_row(result)))
+    {
+        for(int i = 0; i < num_fields; i++)
+        {
+            printf("%s ", row[i] ? row[i] : "NULL");
+        }
+
+        printf("\n");
+    }
+
+    mysql_free_result(result);
+    mysql_close(con);
 } //Sort the list by gender
 
-void sortByAge(struct StudentList** list){
+void sortByAge(){
+    MYSQL* con = mysql_init(NULL);
+    if (con == NULL)
+    {
+        finish_with_error(con);
+    }
+    if (mysql_real_connect(con, "localhost", "user1", "123456",
+                           "sims", 0, NULL, 0) == NULL)
+    {
+        finish_with_error(con);
+    }
 
+    if (mysql_query(con, "SELECT * FROM students ORDER BY age;"))
+    {
+        finish_with_error(con);
+    }
+
+    MYSQL_RES *result = mysql_store_result(con);
+
+    if (result == NULL)
+    {
+        finish_with_error(con);
+    }
+
+    int num_fields = mysql_num_fields(result);
+
+    MYSQL_ROW row;
+
+
+    while ((row = mysql_fetch_row(result)))
+    {
+        for(int i = 0; i < num_fields; i++)
+        {
+            printf("%s ", row[i] ? row[i] : "NULL");
+        }
+
+        printf("\n");
+    }
+
+    mysql_free_result(result);
+    mysql_close(con);
 } //Sort the list by age
 
-void sortByCScore(struct StudentList** list){
+void sortByCScore(){
+    MYSQL* con = mysql_init(NULL);
+    if (con == NULL)
+    {
+        finish_with_error(con);
+    }
+    if (mysql_real_connect(con, "localhost", "user1", "123456",
+                           "sims", 0, NULL, 0) == NULL)
+    {
+        finish_with_error(con);
+    }
 
+    if (mysql_query(con, "SELECT * FROM students ORDER BY CScore;"))
+    {
+        finish_with_error(con);
+    }
+
+    MYSQL_RES *result = mysql_store_result(con);
+
+    if (result == NULL)
+    {
+        finish_with_error(con);
+    }
+
+    int num_fields = mysql_num_fields(result);
+
+    MYSQL_ROW row;
+
+
+    while ((row = mysql_fetch_row(result)))
+    {
+        for(int i = 0; i < num_fields; i++)
+        {
+            printf("%s ", row[i] ? row[i] : "NULL");
+        }
+
+        printf("\n");
+    }
+
+    mysql_free_result(result);
+    mysql_close(con);
 } //Sort the list by C score
 
-void sortByEngScore(struct StudentList** list){
+void sortByEngScore(){
+    MYSQL* con = mysql_init(NULL);
+    if (con == NULL)
+    {
+        finish_with_error(con);
+    }
+    if (mysql_real_connect(con, "localhost", "user1", "123456",
+                           "sims", 0, NULL, 0) == NULL)
+    {
+        finish_with_error(con);
+    }
 
+    if (mysql_query(con, "SELECT * FROM students ORDER BY EngScore;"))
+    {
+        finish_with_error(con);
+    }
+
+    MYSQL_RES *result = mysql_store_result(con);
+
+    if (result == NULL)
+    {
+        finish_with_error(con);
+    }
+
+    int num_fields = mysql_num_fields(result);
+
+    MYSQL_ROW row;
+
+
+    while ((row = mysql_fetch_row(result)))
+    {
+        for(int i = 0; i < num_fields; i++)
+        {
+            printf("%s ", row[i] ? row[i] : "NULL");
+        }
+
+        printf("\n");
+    }
+
+    mysql_free_result(result);
+    mysql_close(con);
 } //Sort the list by English score
+
+void logPrint(){
+
+} //Print the log file
+
+void logWrite(char* string){
+
+} //Write to the log file

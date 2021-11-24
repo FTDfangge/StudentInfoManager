@@ -18,7 +18,8 @@ void UImenu(){
         printf("4. Modify student\n");
         printf("5. Delete student\n");
         printf("6. Search\n");
-        printf("7. exit\n");
+        printf("7. Check log file\n");
+        printf("8. exit\n");
         printf("Plz input the choice(1~7): ");
         int choice=0;
         scanf("%d",&choice);
@@ -48,6 +49,10 @@ void UImenu(){
                 break;
             }
             case 7:{
+                UIlog();
+                break;
+            }
+            case 8:{
                 exit(0);
             }
             default:{
@@ -94,9 +99,44 @@ void UIdisplay(){
 }
 
 void UIsort(struct StudentList** list){
-
+    printf("\n1. Student id\n2. name\n3. gender\n4. age\n5. C score\n6. English Score\n");
+    printf("\nPlz select the attribute to sort: ");
+    int choice = 0;
+    scanf("%d", &choice);
+    switch (choice) {
+        case 1:{
+            sortById();
+            break;
+        }
+        case 2:{
+            sortByName();
+            break;
+        }
+        case 3:{
+            sortByGender();
+            break;
+        }
+        case 4:{
+            sortByAge();
+            break;
+        }
+        case 5:{
+            sortByCScore();
+            break;
+        }
+        case 6:{
+            sortByEngScore();
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 void UIsearch(struct StudentList** list){
+
+}
+
+void UIlog(){
 
 }
