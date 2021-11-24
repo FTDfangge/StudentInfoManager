@@ -476,9 +476,32 @@ void search(char* attribute, char* value){
 } //Search by "attribute" and value is "value".
 
 void logPrint(){
-
+    FILE* file = fopen("log.txt","r+");
+    char string[255];
+    printf("\nLog: \n");
+    fscanf(file,"\n%[^\n]",string);
+    fscanf(file,"\n%[^\n]s",string);
+    while(fscanf(file,"\n%[^\n]s",string) != EOF){
+        printf("%s\n",string);
+    }
+    fclose(file);
 } //Print the log file
 
 void logWrite(char* string){
+    FILE* file = fopen("log.txt","a");
+    time_t rawtime;
+    struct tm * timeinfo;
 
+    time ( &rawtime );
+    timeinfo = localtime ( &rawtime );
+    char time[255] = {'\0'};
+    strcpy(time, asctime(timeinfo));
+    for(int i=0;i<255;i++){
+        if (time[i] == '\n'){
+            time[i] = '\0';
+            break;
+        }
+    }
+    fprintf(file,"|%s|%20s|\n",time,string);
+    fclose(file);
 } //Write to the log file

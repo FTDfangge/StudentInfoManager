@@ -162,5 +162,5 @@ void UIsearch(struct StudentList** list){
 }
 
 void UIlog(){
-
+    logPrint();
 }
