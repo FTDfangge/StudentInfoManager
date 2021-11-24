@@ -415,6 +415,51 @@ void sortByEngScore(){
     mysql_close(con);
 } //Sort the list by English score
 
+void search(char* attribute, char* value){
+    MYSQL* con = mysql_init(NULL);
+    if (con == NULL)
+    {
+        finish_with_error(con);
+    }
+    if (mysql_real_connect(con, "localhost", "user1", "123456",
+                           "sims", 0, NULL, 0) == NULL)
+    {
+        finish_with_error(con);
+    }
+
+    char sql[255];
+    snprintf(sql, 255, "SELECT * FROM students WHERE %s = '%s'",attribute, value);
+    if (mysql_query(con, sql))
+    {
+        finish_with_error(con);
+    }
+
+    MYSQL_RES *result = mysql_store_result(con);
+
+    if (result == NULL)
+    {
+        finish_with_error(con);
+    }
+
+    int num_fields = mysql_num_fields(result);
+
+    MYSQL_ROW row;
+
+
+    while ((row = mysql_fetch_row(result)))
+    {
+        for(int i = 0; i < num_fields; i++)
+        {
+            printf("%s ", row[i] ? row[i] : "NULL");
+        }
+
+        printf("\n");
+    }
+
+    mysql_free_result(result);
+    mysql_close(con);
+} //Search by "attribute" and value is "value".
+
 void logPrint(){
 
 } //Print the log file

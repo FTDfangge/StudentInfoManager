@@ -19,6 +19,7 @@ void sortByGender(); //Sort the list by gender
 void sortByAge(); //Sort the list by age
 void sortByCScore(); //Sort the list by C score
 void sortByEngScore(); //Sort the list by English score
+void search(char* attribute, char* value); //Search by "attribute" and value is "value".
 
 void logPrint(); //Print the log file
 void logWrite(char* string); //Write to the log file

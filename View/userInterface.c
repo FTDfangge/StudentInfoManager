@@ -134,7 +134,25 @@ void UIsort(struct StudentList** list){
 }
 
 void UIsearch(struct StudentList** list){
+    char **choices = malloc(sizeof(char*) * 6);
+    choices[0] = "stuId";
+    choices[1] = "name";
+    choices[2] = "gender";
+    choices[3] = "age";
+    choices[4] = "CScore";
+    choices[5] = "EngScore";
 
+    printf("\n1. Student id\n2. name\n3. gender\n4. age\n5. C score\n6. English Score\n");
+    printf("\nPlz select the attribute to search: ");
+    int choice = 0;
+    fflush(stdin);
+    scanf("%d", &choice);
+    choice--;
+    printf("\n Plz input the value of %s: ",choices[choice]);
+    char value[255];
+    fflush(stdin);
+    scanf("%s", value);
+    search(choices[choice], value);
 }
 
 void UIlog(){
